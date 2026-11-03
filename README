@@ -1,0 +1,25 @@
+# IT313 Lab 6: Student Directory Viewer
+
+## Problem
+Build a React Native (Expo) screen that lets an adviser browse and search a
+list of students. Each student appears as a card with a photo, name, year
+level, and a "Flag for Advising" button that visibly changes when toggled.
+
+## Component Structure
+- **App.js**: entry point; renders StudentDirectory.
+- **StudentDirectory** (parent): holds the `students` array and the search
+  `query` in state. Filters students by name (case-insensitive), and renders
+  one StudentCard per student inside a ScrollView using
+  `.map()` with `key={student.id}`. Owns the `toggleFlag` function.
+- **StudentCard** (child): receives `id, name, year, photoUrl, flagged,
+  onToggleFlag` as props. Displays Image + two Text elements in a Flexbox
+  row, plus a Pressable whose style changes based on `pressed` and `flagged`.
+
+Data flows down through props; events flow up through `onToggleFlag`.
+
+## How to Run
+```bash
+npm install
+npx expo start
+```
+Then scan the QR code with Expo Go, or press `a` for an Android emulator.
